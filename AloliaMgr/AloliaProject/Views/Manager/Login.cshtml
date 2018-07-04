@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+
+<div style="width:300px;margin:auto;">
+    <div style="height:200px;"></div>
+    <form action="@Url.Action("Login")" method="post">
+        <div class="form-group">
+            <label> 用户名</label>
+            <input type="text" name="userName" class="form-control" value="@ViewBag.UserName" />
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            <input type="password" class="form-control" name="password" value="" />
+        </div>
+        <p style="color:red">@(Model?["message"])</p>
+        <input type="submit" class="btn btn-info" value="登录" />
+    </form>
+</div>

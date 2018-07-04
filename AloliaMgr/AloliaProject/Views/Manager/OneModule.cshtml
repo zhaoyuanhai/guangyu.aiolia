@@ -1,0 +1,48 @@
+﻿@using Newtonsoft.Json.Linq;
+@model JObject
+@{
+    ViewBag.Title = "OneModule";
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>标题</th>
+            <th>内容</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model["OOBFS"]["title"]</td>
+            <td>
+                @MvcHtmlString.Create(Model["OOBFS"]["content"].ToString())
+            </td>
+            <td>
+                <a href="@Url.Action("EditOneModule",new {type="OOBFS" })" class="btn btn-sm">修改</a>
+            </td>
+        </tr>
+        <tr>
+            <td>@Model["OOPETS"]["title"]</td>
+            <td>@MvcHtmlString.Create(Model["OOPETS"]["content"].ToString())</td>
+            <td>
+                <a href="@Url.Action("EditOneModule",new { type="OOPETS"})" class="btn btn-sm">修改</a>
+            </td>
+        </tr>
+        <tr>
+            <td>@Model["OOPMCS"]["title"]</td>
+            <td>@MvcHtmlString.Create(Model["OOPMCS"]["content"].ToString())</td>
+            <td>
+                <a href="@Url.Action("EditOneModule",new { type="OOPMCS"})" class="btn btn-sm">修改</a>
+            </td>
+        </tr>
+        <tr>
+            <td>@Model["OPDT"]["title"]</td>
+            <td>@MvcHtmlString.Create(Model["OPDT"]["content"].ToString())</td>
+            <td>
+                <a href="@Url.Action("EditOneModule",new { type="OPDT"})" class="btn btn-sm">修改</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

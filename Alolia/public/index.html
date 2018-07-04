@@ -1,0 +1,86 @@
+﻿<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.fullpage.css" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/knockout-3.4.1.js"></script>
+    <script src="js/jquery.fullpage.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div class="section" id="homeimage">
+            <ul class="ulclass" data-bind="foreach:images">
+                <li class="slide">
+                    <div class="img-bg" data-bind="style:{backgroundImage:'url('+$data['#text']+')'}"></div>
+                </li>
+            </ul>
+            <div class="logo">
+                <img src="img/logo.png" alt="logo">
+            </div>
+            <div class="link">
+                <p><a style="text-decoration:none" href="WebContent.html" target="_blank">AIOLIA INTERANTIONAL GROUP PRESENTATION</a></p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="info">
+                <div class="info-left">
+                    <div class="btnlist">
+                        <ul>
+                            <li class="active" data-s="one">OFFSHORE OIL&GAS BUSINESS</li>
+                            <li data-s="two">WATER TREATMENT SOLUTION</li>
+                            <li data-s="three">ENVIRONMENTAL PRODUCTS & SERVICE</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-right active s-one" id="onemodule">
+                    <div class="content-right-nav-ddd">
+                        <ul>
+                            <li class="active">OOBFS</li>
+                            <li>OOPETS</li>
+                            <li>OOPMCS</li>
+                            <li>OPDT</li>
+                        </ul>
+                        <div class="nav-button"></div>
+                    </div>
+                    <div class="content-right-content">
+                        <div class="item active" id="OOBFS">
+                            <h2 class="title" data-bind="text:$data['OOBFS']['@Title']"></h2>
+                            <div class="content" data-bind="text:$data['OOBFS']['#text']"></div>
+                        </div>
+                        <div class="item" id="OOPETS">
+                            <h2 class="title" data-bind="text:$data['OOPETS']['@Title']"></h2>
+                            <span class="content" data-bind="text:$data['OOPETS']['#text']"></span>
+                        </div>
+                        <div class="item" id="OOPMCS">
+                            <h2 class="title" data-bind="text:$data['OOPMCS']['@Title']"></h2>
+                            <span class="content" data-bind="text:$data['OOPMCS']['#text']"></span>
+                        </div>
+                        <div class="item" id="OPDT">
+                            <h2 class="title" data-bind="text:$data['OPDT']['@Title']"></h2>
+                            <span class="content" data-bind="text:$data['OPDT']['#text']"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-right s-two" id="secondmodule">
+                    <ul class="twomodule" data-bind="foreach:data">
+                        <li>
+                            <h3 class="title" data-bind="text:$data['@Title']"></h3>
+                            <span data-bind="text:$data['#text']"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info-right s-three" id="threemodule">
+                    <div class="img-body" data-bind="foreach:data">
+                        <a data-bind="attr:{href:$data['@Url']}"><img data-bind="attr:{src:$data['#text']}" alt="Alternate Text" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

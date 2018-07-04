@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $.getJSON("/api/values", null, function (data) {
+            var str = "<li><img scr='"+/@content/+"'></img></li>";
+            console.log(data);
+            //var html = str.replace("@content", data["Message"]);
+            //$(".messgge").append(html);
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

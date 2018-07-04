@@ -1,0 +1,17 @@
+﻿@using Newtonsoft.Json.Linq;
+@model JObject
+@{
+    ViewBag.Title = "EditHomeImage";
+}
+
+<div>
+    <form action="@Url.Action("EditHomeImage")" method="post" enctype="multipart/form-data">
+        <div>
+            <span>预览</span>
+            <img src="@Model["path"]" alt="Alternate Text" />
+            <input type="file" name="file" />
+        </div>
+        <input type="submit" value="提交" />
+    </form>
+</div>
+

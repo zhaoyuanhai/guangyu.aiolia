@@ -1,0 +1,32 @@
+﻿@model  AloliaProject.Models.Test
+
+@{
+    ViewBag.Title = "Upload";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>普通上传</title>
+</head>
+<body>
+    @*enctype= "multipart/form-data"是必需有的，否则action接收不到相应的file*@
+    @using (Html.BeginForm("Upload", "Test", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.LabelFor(mod => mod.Title)
+        <br />
+        @Html.EditorFor(mod => mod.Title)
+        <br />     <br />
+        @Html.LabelFor(mod => mod.Content)
+        <br />
+        @Html.EditorFor(mod => mod.Content)
+        <br />
+        <span>上传文件</span>
+        <br />
+        <input type="file" name="file" />
+        <br />
+        <br />
+        <input id="ButtonUpload" type="submit" value="提交" />
+    }
+</body>
+</html>

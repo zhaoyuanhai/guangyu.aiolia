@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "AddThreeModule";
+}
+
+<div>
+    <form class="form-inline" action="@Url.Action("AddThreeModule")" method="post" enctype="multipart/form-data" role="form">
+        <div class="form-group">
+            <label class="sr-only" for="name">名称</label>
+            <input type="text" name="url" class="form-control" id="name" placeholder="请输入名称">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="inputfile">文件输入</label>
+            <input type="file" name="file" id="inputfile">
+        </div>
+        <button type="submit" class="btn btn-default">提交</button>
+    </form>
+</div>
+

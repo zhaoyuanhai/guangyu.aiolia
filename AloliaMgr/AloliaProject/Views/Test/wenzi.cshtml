@@ -1,0 +1,31 @@
+﻿@model  AloliaProject.Models.Wenzi
+@{
+    ViewBag.Title = "wenzi";
+}
+
+<h2>wenzi</h2>
+@using (Html.BeginForm("wenzitijiao", "Test", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="application_b_3">
+        <table width="820" border="0">
+            <tr>
+                <td width="80" height="50">标题</td>
+                <td width="730">
+                    @*//@Html.LabelFor(model=>model.Title)*@
+                    @Html.EditorFor(model => model.Title)
+                </td>
+            </tr>
+
+
+            <tr>
+                <td width="80" height="50">内容</td>
+                <td width="730">
+                    @*//@Html.LabelFor(model => model.Content)*@
+                    @Html.EditorFor(model => model.Content)
+                </td>
+            </tr>
+
+        </table>
+        <input id="ButtonUpload" type="submit" value="提交" />
+    </div>
+}

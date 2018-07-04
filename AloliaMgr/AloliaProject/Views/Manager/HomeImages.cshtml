@@ -1,0 +1,94 @@
+﻿@using Newtonsoft.Json.Linq;
+@model JArray
+@{
+    ViewBag.Title = "HomeImages";
+}
+
+
+<style>
+    .imageContainer {
+        box-sizing: border-box;
+    }
+
+        .imageContainer .img-box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid gray;
+            float: left;
+            margin: 10px;
+            position: relative;
+            overflow:hidden;
+        }
+
+            .imageContainer .img-box:hover {
+                border: 2px solid yellow;
+            }
+
+            .imageContainer .img-box img {
+                max-width: 100%;
+                min-height: 100%;
+            }
+
+            .imageContainer .img-box > .ctrl {
+                display: none;
+                position: absolute;
+                bottom: 0px;
+                height: 30px;
+                background-color: #efefff;
+                width: 100%;
+            }
+
+            .imageContainer .img-box .ctrl a {
+                display: block;
+                vertical-align: middle;
+                line-height: 30px;
+                margin: 0 10px;
+                padding: 0;
+            }
+
+            .imageContainer .img-box .ctrl .delete {
+                float: left;
+            }
+
+            .imageContainer .img-box .ctrl .edit {
+                float: right;
+            }
+
+            .imageContainer .img-box:hover .ctrl {
+                display: block;
+            }
+
+    .add-img {
+        text-align: center;
+    }
+
+        .add-img > a {
+            font-size: 50px;
+            margin-top: 60px;
+            display: inline-block;
+            text-decoration: none;
+        }
+</style>
+
+<div class="imageContainer">
+    @foreach (var item in Model)
+    {
+        <div class="img-box">
+            <a href="#">
+                <img src="@(item["path"])" alt="" />
+            </a>
+            <div class="ctrl">
+                <a href="@Url.Action("DeleteHomeImage", new {id = item["id"] })" class="delete">删除</a>
+                <a href="@Url.Action("EditHomeImage",new {id= item["id"] })" class="edit">编辑</a>
+            </div>
+        </div>
+    }
+    <div class="img-box add-img">
+        <a href="/Manager/AddHomeImage">添加</a>
+    </div>
+</div>
+<script>
+    $(".delete").click(function () {
+        return confirm("确定要删除此图片吗?")
+    });
+</script>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/knockout-3.4.1.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-family: Arial;
+            background-color: #b4d9dd;
+        }
+
+        .body {
+            margin-bottom: 50px;
+        }
+
+            .body .title {
+                text-align: center;
+            }
+
+            .body .msg {
+                width: 80%;
+                margin: auto;
+                line-height: 30px;
+            }
+    </style>
+    <script type="text/javascript">
+        $.getJSON("/api/Detail", null, function (data) {
+            ko.applyBindings({ data: data }, document.getElementById('content'));
+        });
+    </script>
+</head>
+<body>
+    <div id="content">
+        <div class="tou">
+            <img style="width:100%" src="img/message.jpg" />
+        </div>
+        <div class="body">
+            <h2 class="title" data-bind="text:data['title']"></h2>
+            <div class="msg" data-bind="html:data['content']"></div>
+        </div>
+    </div>
+</body>
+</html>

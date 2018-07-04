@@ -1,0 +1,11 @@
+﻿@model string[]
+@{
+    ViewBag.Title = "tupianxianshi";
+}
+
+<h2>tupianxianshi</h2>
+
+@foreach (string path in Model)
+{
+    <img src="@path" />
+}

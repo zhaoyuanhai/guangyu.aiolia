@@ -1,0 +1,170 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=Edge" />
+
+    <title>AIOLIA</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.fullpage.css" />
+    <link rel="icon" href="img/ico.ico" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/knockout-3.4.1.js"></script>
+    <script src="js/jquery.fullpage.js"></script>
+   
+    <script>
+        function isIE() { //ie?
+            if (!!window.ActiveXObject || "ActiveXObject" in window)
+                return true;
+            else
+                return false;
+        }
+
+        if (isIE()) {
+            function ie() {
+                var height1 = $(".img-bg").parent(".fp-tableCell").css("height");
+                $(".img-bg").css("height", height1);
+
+                var height2 = $(".page").parent(".fp-tableCell").css("height");
+                $(".page").css("height", height2);
+            }
+        }
+    </script>
+   
+    <script src="index.js"></script>
+    <style>
+
+        .fp-tableCell{
+            vertical-align:top;
+        }
+
+        .page {
+            height:100%;
+        }
+
+            .page .page-left {
+                width: 40%;
+                height: calc(100% - 49px);
+                float:left;
+                background-color:#a1bfc1;
+            }
+
+            .page .page-right {
+                width: 60%;
+                height: 100%;
+                float:right;
+                background-image:url('/img/rightbg.jpg');
+                background-size:cover;
+            }
+
+
+            .left-image{
+                height:60%;
+                background-image:url('img/sec1.jpg');
+                background-color:gray;
+                background-size:cover;
+            }
+
+            .page-right .right{
+                display:none;
+            }
+
+            .page-right .right.active{
+                display:block;
+            }
+
+            img{
+                border:0;
+            }
+    </style>
+</head>
+
+<body>
+    <div id="container" style="display:none">
+        <div class="section" id="homeimage">
+            <ul class="ulclass" data-bind="foreach:images">
+                <li class="slide">
+                    <div class="img-bg" data-bind="style:{backgroundImage:'url('+$data['path']+')'}"></div>
+                </li>
+            </ul>
+            <div class="logo">
+                <img src="img/logo.png" alt="logo">
+            </div>
+            <div class="link">
+                <p><a style="text-decoration:none" href="Detail.html" target="_blank">AIOLIA INTERANTIONAL GROUP PRESENTATION</a></p>
+            </div>
+        </div>
+        <div class="section">
+            <div class="page">
+                <div class="page-left">
+                    <div class="btnlistcontainer">
+                        <div style="height:40px;"></div>
+                        <div class="btnlist">
+                            <ul>
+                                <li class="active" data-s="one" data-url="img/sec1.jpg">OFFSHORE OIL&GAS BUSINESS</li>
+                                <li data-s="two" data-url="img/sec2.jpg">WATER TREATMENT SOLUTION</li>
+                                <li data-s="three" data-url="img/sec3.jpg">ENVIRONMENTAL PRODUCTS & SERVICE</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="left-image"></div>
+                </div>
+                <div class="page-right">
+                    <div class="right active s-one" id="onemodule">
+                        <div class="content-right-nav-ddd">
+                            <ul>
+                                <li class="active">OOBFS</li>
+                                <li>OOPETS</li>
+                                <li>OOPMCS</li>
+                                <li>OPDT</li>
+                            </ul>
+                            <div class="nav-button"></div>
+                        </div>
+                        <div class="content-right-content">
+                            <div class="item active" id="OOBFS">
+                                <h3 class="title" data-bind="text:$data.OOBFS['title']"></h3>
+                                <p class="content" data-bind="html:$data.OOBFS['content']">
+                                </p>
+                            </div>
+                            <div class="item" id="OOPETS">
+                                <h3 class="title" data-bind="text:$data.OOPETS['title']"></h3>
+                                <p class="content" data-bind="html:$data.OOPETS['content']"></p>
+                            </div>
+                            <div class="item" id="OOPMCS">
+                                <h3 class="title" data-bind="text:$data.OOPMCS['title']"></h3>
+                                <p class="content" data-bind="html:$data.OOPMCS['content']"></p>
+                            </div>
+                            <div class="item" id="OPDT">
+                                <h3 class="title" data-bind="text:$data.OPDT['title']"></h3>
+                                <p class="content" data-bind="html:$data.OPDT['content']"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right s-two" id="secondmodule">
+                        <ul class="twomodule" data-bind="foreach:data">
+                            <li>
+                                <h3 class="title" data-bind="text:$data['title']"></h3>
+                                <span data-bind="text:$data['content']"></span>
+                                <div class="f-content" data-bind="html:$data['text']"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right s-three" id="threemodule">
+                        <div class="img-body" data-bind="foreach:data">
+                            <a data-bind="attr:{href:$data['url']}" target="_blank">
+                                <img data-bind="attr:{src:$data['path']}" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="foot">
+                <span>AIOLIA INTERNATIONAL LLC. 1757 ASCOT COURT BLOOMFIELD MI 48302  </span>
+            </div>
+        </div>
+    </div>
+    <div class="loading">
+        <img src="img/loading.jpg" alt="Alternate Text" />
+    </div>
+</body>
+
+</html>

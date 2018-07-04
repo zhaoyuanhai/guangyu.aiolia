@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "AddSecondModule";
+}
+
+
+<link href="~/Scripts/umeditor/themes/default/css/umeditor.min.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="~/scripts/umeditor/third-party/template.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="~/scripts/umeditor/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="~/scripts/umeditor/umeditor.min.js"></script>
+<script type="text/javascript" src="~/Scripts/umeditor/lang/zh-cn/zh-cn.js"></script>
+
+<div>
+    <form action="@Url.Action("AddSecondModule")" method="post" role="form">
+        <div class="form-group">
+            <label class="sr-only" for="name">标题</label>
+            <input type="text" name="title" class="form-control" id="name" placeholder="请输入名称">
+        </div>
+        <div class="form-group">
+            <label class="sr-only" for="inputfile">内容</label>
+            <input type="text" class="form-control" name="content" id="inputfile">
+        </div>
+        <div>
+            <label>内容</label>
+            <script type="text/plain" name="text" id="myText" style="width:100%;height:240px;"></script>
+        </div>
+        <button type="submit" class="btn btn-default">提交</button>
+    </form>
+</div>
+<script>
+    var um = UM.getEditor("myText");
+</script>
+
+

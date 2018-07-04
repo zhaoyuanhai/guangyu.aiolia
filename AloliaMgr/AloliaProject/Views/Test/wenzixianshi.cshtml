@@ -1,0 +1,31 @@
+﻿@using Newtonsoft.Json.Linq;
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+
+    function xiugai(data) {
+        var text = $(data).attr("data-text");
+        var title = $(data).attr("data-title");
+        alert(text);
+        //$.getJSON("/Test/Updatewenzi", null, function (data) {
+        //    console.log(data);
+        //});
+    };
+
+</script>
+
+@model JObject[]
+@{
+    ViewBag.Title = "tupianxianshi";
+}
+
+<h2>tupianxianshi</h2>
+
+@foreach (JObject path in Model)
+{
+    <div>
+        <h2>@path["@Title"]</h2>
+        <p>@path["#text"]</p>
+        <button type="button" data-title="@path["@Title"]" data-text="@path["#text"]"
+       id="@path["@Id"]" onclick="xiugai(this)">修改</button>
+    </div>
+}
